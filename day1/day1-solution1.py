@@ -1,5 +1,5 @@
 
-def solution1():
+def solution1_1():
     prevNum = 0
     currNum = 0
     counter = 0
@@ -13,6 +13,23 @@ def solution1():
                 counter = counter + 1
 
             prevNum = currNum
+
+    print(f"Day 1 part 1 solution: counter = {counter}")
+
+
+def solution1_2():
+    counter = 0
+
+    with open("./day1/day1-input.txt", "r") as f:
+        num1 = f.readline()
+        num2 = f.readline()
+
+        while num2:
+            if int(num2) > int(num1):
+                counter = counter + 1
+
+            num1 = num2
+            num2 = f.readline()
 
     print(f"Day 1 part 1 solution: counter = {counter}")
 
@@ -41,5 +58,6 @@ def solution2():
     print(f"Day 1 part 2 solution: counter = {counter}")
 
 
-solution1()
+solution1_1()
+solution1_2()
 solution2()
