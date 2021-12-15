@@ -1,18 +1,17 @@
 
 def solution1_1():
-    prevNum = 0
-    currNum = 0
+    prev_num = 0
     counter = 0
 
     with open("./day1/day1-input.txt", "r") as f:
 
         for line in f:
-            currNum = int(line)
+            curr_num = int(line)
 
-            if prevNum > 0 and currNum > prevNum:
+            if 0 < prev_num < curr_num:
                 counter = counter + 1
 
-            prevNum = currNum
+            prev_num = curr_num
 
     print(f"Day 1 part 1 solution: counter = {counter}")
 
