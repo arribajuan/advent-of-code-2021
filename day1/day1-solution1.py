@@ -1,9 +1,11 @@
+input_location: str = "day1-input.txt"
+
 
 def solution1_1():
     prev_num = 0
     counter = 0
 
-    with open("./day1/day1-input.txt", "r") as f:
+    with open(input_location, "r") as f:
 
         for line in f:
             curr_num = int(line)
@@ -19,7 +21,7 @@ def solution1_1():
 def solution1_2():
     counter = 0
 
-    with open("./day1/day1-input.txt", "r") as f:
+    with open(input_location, "r") as f:
         num1 = f.readline()
         num2 = f.readline()
 
@@ -36,7 +38,7 @@ def solution1_2():
 def solution2():
     counter = 0
 
-    with open("./day1/day1-input.txt", "r") as f:
+    with open(input_location, "r") as f:
         num1 = f.readline()
         num2 = f.readline()
         num3 = f.readline()
