@@ -1,37 +1,36 @@
-from typing import List
+import day4.BingoGame as bg
+import day4.BingoTable as bt
 
 input_location: str = "day4-input.txt"
 
 
-def bingo_load_input():
-    game: list[str] = []
-    tables: list[list[list[str]]] = []
-
-    with open(input_location, "r") as f:
-        lines = f.readlines()
-
-        game = lines[0].strip().split()
-
-        row = 1
-        while row < len(lines):
-            r1 = lines[row + 1].strip().split()
-            r2 = lines[row + 2].strip().split()
-            r3 = lines[row + 3].strip().split()
-            r4 = lines[row + 4].strip().split()
-            r5 = lines[row + 5].strip().split()
-            table = [r1, r2, r3, r4, r5]
-            tables.append(table)
-
-            row = row + 6
-
-    return game, tables
-
-
 def solution1_1():
-    game, tables = bingo_load_input()
+    my_game = bg.BingoGame(input_location)
 
-    print(game)
-    print(tables)
+    for game_number in my_game.game:
+        if my_game.play_number(game_number):
+            print("Winner!!!!\n")
+            print(my_game.game_winner)
+
+            table_score = solution1_1_calculate_score(my_game.game_winner)
+            print(f" - Table score = {table_score}")
+
+            break
+
+
+def solution1_1_calculate_score(game_board: bt.BingoTable) -> int:
+    print("Calculating score....")
+
+    total_non_marked = 0
+    for i in range(len(game_board.positions_marked)):
+        for j in range(len(game_board.positions_marked[i])):
+            if game_board.positions_marked[i][j] == 0:
+                total_non_marked += game_board.table_numbers[i][j]
+
+    last_number_played = game_board.numbers_played[-1]
+    final_score = total_non_marked * last_number_played
+
+    return final_score
 
 
 solution1_1()
