@@ -1,21 +1,21 @@
 import day4.BingoTable as bt
+import copy
 
 
 class BingoGame:
-    game: list[int] = []
+    game_numbers: list[int] = []
     tables: list[bt.BingoTable] = []
-    is_game_finished: bool
-    game_winner: bt.BingoTable
+    game_winners: list[bt.BingoTable]
 
     def __init__(self, input_location: str):
         self.load_input(input_location)
-        self.is_game_finished = False
+        self.game_winners = []
 
     def load_input(self, input_location: str):
         with open(input_location, "r") as f:
             lines = f.readlines()
 
-            self.game = [int(i) for i in lines[0].strip().split(",")]
+            self.game_numbers = [int(i) for i in lines[0].strip().split(",")]
 
             row = 1
             table_count = 1
@@ -29,13 +29,17 @@ class BingoGame:
                 row += 6
                 table_count += 1
 
-    def play_number(self, game_number: int) -> bool:
+    def play_number(self, game_number: int):
         for i, t in enumerate(self.tables):
             if t.play_number(game_number):
-                self.is_game_finished = True
-                self.game_winner = t
-                return True
+                if not self.table_found((t.table_number)):
+                    self.game_winners.append(copy.deepcopy(t))
 
+    def table_found(self, table_number: int):
+        for t in self.game_winners:
+            if t.table_number == table_number:
+                return True
+        return False
 
 
 
