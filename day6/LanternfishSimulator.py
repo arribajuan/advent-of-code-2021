@@ -1,3 +1,6 @@
+import typer
+
+
 class LanternfishSimulator:
     lanternfish: list[int] = []
     turns: int = 0
@@ -19,20 +22,23 @@ class LanternfishSimulator:
     def sim_turn(self):
         self.turns += 1
 
+        fish_to_process = len(self.lanternfish)
         offspring = 0
 
-        for i in range(len(self.lanternfish)):
-            if self.lanternfish[i] == 0:
-                offspring += 1
-                self.lanternfish[i] = 6
-            else:
-                self.lanternfish[i] -= 1
+        typer.echo(f" ... {fish_to_process} fish to simulate")
+
+        with typer.progressbar(range(fish_to_process)) as progress:
+            for i in progress:
+                if self.lanternfish[i] == 0:
+                    offspring += 1
+                    self.lanternfish[i] = 6
+                else:
+                    self.lanternfish[i] -= 1
 
         for i in range(offspring):
             self.lanternfish.append((8))
 
-        #print(f"Sim! - {self.lanternfish}")
-
     def sim_turns(self, turns_to_simulate: int):
         for i in range(turns_to_simulate):
+            print(f"Sim turn: {i}")
             self.sim_turn()
