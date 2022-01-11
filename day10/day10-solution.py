@@ -11,7 +11,7 @@ def main():
 
 def solution():
     typer.echo("Day 10 / Part 1")
-    checkResult = sc.SyntaxChecker("asdf")
+    checkResult = sc.SyntaxChecker().check_syntax("asdf")
     typer.echo(checkResult)
 
 

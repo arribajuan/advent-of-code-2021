@@ -17,5 +17,8 @@ class SyntaxChecker:
     def check_syntax(text_to_check):
         result = sr.SyntaxResult()
 
+        result.is_valid = True
+        result.text_to_check = text_to_check
+
         return result
 
