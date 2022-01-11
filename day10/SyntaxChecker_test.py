@@ -5,11 +5,6 @@ import unittest
 
 class TestSyntaxChecker(unittest.TestCase):
 
-    def test_case0(self):
-        self.assertEqual(1, 1)
-        #print("Day 10 / Part 1")
-        checkResult = sc.SyntaxChecker().check_syntax("asdf")
-
     def test_case01(self):
         checkResult = sc.SyntaxChecker().check_syntax("")
         self.assertEqual(checkResult.is_valid, True)
@@ -54,6 +49,9 @@ class TestSyntaxChecker(unittest.TestCase):
         checkResult = sc.SyntaxChecker().check_syntax("<([]){()}[{}])")
         self.assertEqual(checkResult.is_valid, False)
 
+    def test_case12(self):
+        checkResult = sc.SyntaxChecker().check_syntax("()(")
+        self.assertEqual(checkResult.is_valid, False)
 
 
 
