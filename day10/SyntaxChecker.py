@@ -10,7 +10,7 @@ class SyntaxChecker:
     def __str__(self):
         result = "Syntax checker\n"
         result += f" - Opening tokens = {self.token_open}\n"
-        result += f" - Opening tokens = {self.token_close}\n"
+        result += f" - Closing tokens = {self.token_close}\n"
         return result
 
     @staticmethod
