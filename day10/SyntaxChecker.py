@@ -68,7 +68,8 @@ class SyntaxChecker:
             result.is_valid = False
             result.incomplete_syntax_string = ''.join(self.token_queue)
             result.incomplete_syntax_fix_string = self.complete_invalid_syntax_string(result.incomplete_syntax_string)
-            result.incomplete_syntax_fix_points = self.calculate_invalid_syntax_points(result.incomplete_syntax_fix_string)
+            result.incomplete_syntax_fix_points = self.calculate_invalid_syntax_points(
+                result.incomplete_syntax_fix_string)
 
         return result
 

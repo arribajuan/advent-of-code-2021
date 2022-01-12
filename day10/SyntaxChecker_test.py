@@ -1,5 +1,6 @@
-import SyntaxChecker as sc
 import unittest
+
+import SyntaxChecker as sc
 
 
 class TestSyntaxChecker(unittest.TestCase):
@@ -75,7 +76,6 @@ class TestSyntaxChecker(unittest.TestCase):
         self.assertEqual(result.is_valid, False)
         self.assertEqual(result.invalid_character, ">")
         self.assertEqual(result.invalid_character_points, 25137)
-
 
     def test_syntax_completion_01(self):
         result = sc.SyntaxChecker().check_syntax("[({(<(())[]>[[{[]{<()<>>")
