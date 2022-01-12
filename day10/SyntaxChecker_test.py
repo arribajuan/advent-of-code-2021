@@ -76,24 +76,60 @@ class TestSyntaxChecker(unittest.TestCase):
         self.assertEqual(result.invalid_character, ">")
         self.assertEqual(result.invalid_character_points, 25137)
 
+
+    def test_syntax_completion_01(self):
+        result = sc.SyntaxChecker().check_syntax("[({(<(())[]>[[{[]{<()<>>")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.incomplete_syntax_string, "[({([[{{")
+        self.assertEqual(result.incomplete_syntax_fix_string, "}}]])})]")
+        self.assertEqual(result.incomplete_syntax_fix_points, 288957)
+
+    def test_syntax_completion_02(self):
+        result = sc.SyntaxChecker().check_syntax("[(()[<>])]({[<{<<[]>>(")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.incomplete_syntax_string, "({[<{(")
+        self.assertEqual(result.incomplete_syntax_fix_string, ")}>]})")
+        self.assertEqual(result.incomplete_syntax_fix_points, 5566)
+
+    def test_syntax_completion_03(self):
+        result = sc.SyntaxChecker().check_syntax("(((({<>}<{<{<>}{[]{[]{}")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.incomplete_syntax_string, "((((<{<{{")
+        self.assertEqual(result.incomplete_syntax_fix_string, "}}>}>))))")
+        self.assertEqual(result.incomplete_syntax_fix_points, 1480781)
+
+    def test_syntax_completion_04(self):
+        result = sc.SyntaxChecker().check_syntax("{<[[]]>}<{[{[{[]{()[[[]")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.incomplete_syntax_string, "<{[{[{{[[")
+        self.assertEqual(result.incomplete_syntax_fix_string, "]]}}]}]}>")
+        self.assertEqual(result.incomplete_syntax_fix_points, 995444)
+
+    def test_syntax_completion_05(self):
+        result = sc.SyntaxChecker().check_syntax("<{([{{}}[<[[[<>{}]]]>[]]")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.incomplete_syntax_string, "<{([")
+        self.assertEqual(result.incomplete_syntax_fix_string, "])}>")
+        self.assertEqual(result.incomplete_syntax_fix_points, 294)
+
     def test_syntax_completion_string_01(self):
-        result = sc.SyntaxChecker().complete_invalid_syntax_string("[({(<(())[]>[[{[]{<()<>>")
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("[({([[{{")
         self.assertEqual(result, "}}]])})]")
 
     def test_syntax_completion_string_02(self):
-        result = sc.SyntaxChecker().complete_invalid_syntax_string("[(()[<>])]({[<{<<[]>>(")
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("({[<{(")
         self.assertEqual(result, ")}>]})")
 
     def test_syntax_completion_string_03(self):
-        result = sc.SyntaxChecker().complete_invalid_syntax_string("(((({<>}<{<{<>}{[]{[]{}")
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("((((<{<{{")
         self.assertEqual(result, "}}>}>))))")
 
     def test_syntax_completion_string_04(self):
-        result = sc.SyntaxChecker().complete_invalid_syntax_string("{<[[]]>}<{[{[{[]{()[[[] ")
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("<{[{[{{[[")
         self.assertEqual(result, "]]}}]}]}>")
 
     def test_syntax_completion_string_05(self):
-        result = sc.SyntaxChecker().complete_invalid_syntax_string("<{([{{}}[<[[[<>{}]]]>[]]")
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("<{([")
         self.assertEqual(result, "])}>")
 
     def test_syntax_completion_points_01(self):

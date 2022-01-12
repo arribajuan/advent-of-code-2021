@@ -25,8 +25,8 @@ class SyntaxChecker:
     def check_syntax(self, text_to_check):
         self.reset_values()
 
-        print(f"")
-        print(f"Checking syntax for {text_to_check}")
+        self.log(f"")
+        self.log(f"Checking syntax for {text_to_check}")
 
         result = sr.SyntaxResult()
         result.text_to_check = text_to_check
@@ -66,11 +66,32 @@ class SyntaxChecker:
         if len(self.token_queue) > 0:
             self.log(f" - Token queue is not empty ({len(self.token_queue)} items remaining) ... this is invalid")
             result.is_valid = False
+            result.incomplete_syntax_string = ''.join(self.token_queue)
+            result.incomplete_syntax_fix_string = self.complete_invalid_syntax_string(result.incomplete_syntax_string)
+            result.incomplete_syntax_fix_points = self.calculate_invalid_syntax_points(result.incomplete_syntax_fix_string)
 
         return result
 
     def complete_invalid_syntax_string(self, invalid_syntax_text):
-        return ""
+        result = ""
 
-    def calculate_invalid_syntax_points(self, text_to_complete):
-        return 0
+        for c in invalid_syntax_text:
+            result += self.token_close[self.token_open.index(c)]
+
+        return result[::-1]
+
+    def calculate_invalid_syntax_points(self, text_to_complete_syntax):
+        result = 0
+
+        for c in text_to_complete_syntax:
+            result *= 5
+            if c == ")":
+                result += 1
+            elif c == "]":
+                result += 2
+            elif c == "}":
+                result += 3
+            elif c == ">":
+                result += 4
+
+        return result
