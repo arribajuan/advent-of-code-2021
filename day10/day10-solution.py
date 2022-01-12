@@ -5,18 +5,19 @@ import SyntaxChecker as sc
 input_location: str = "day10-input.txt"
 
 def main():
-    solution2()
+    #solution1_check_syntax()
+    solution1()
 
 
 
 
-def solution1():
+def solution1_check_syntax():
     typer.echo("Day 10 / Part 1")
-    checkResult = sc.SyntaxChecker().check_syntax("[[[{[[[{{<(<{{[]<>}[<><>]}({()()}[()[]])>[((<>[])(<>)){{()<>}([][])}])[{{{[]<>}<()[])}({<>[]})}(({")
+    checkResult = sc.SyntaxChecker().check_syntax("(>")
     typer.echo(checkResult)
 
 
-def solution2():
+def solution1():
     typer.echo("Day 10 / Part 1")
 
     with open(input_location, "r") as f:

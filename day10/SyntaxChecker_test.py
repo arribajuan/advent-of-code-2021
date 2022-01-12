@@ -53,6 +53,29 @@ class TestSyntaxChecker(unittest.TestCase):
         checkResult = sc.SyntaxChecker().check_syntax("()(")
         self.assertEqual(checkResult.is_valid, False)
 
+    def test_case13(self):
+        checkResult = sc.SyntaxChecker().check_syntax("[)")
+        self.assertEqual(checkResult.is_valid, False)
+        self.assertEqual(checkResult.invalid_character, ")")
+        self.assertEqual(checkResult.invalid_character_points, 3)
+
+    def test_case14(self):
+        checkResult = sc.SyntaxChecker().check_syntax("(]")
+        self.assertEqual(checkResult.is_valid, False)
+        self.assertEqual(checkResult.invalid_character, "]")
+        self.assertEqual(checkResult.invalid_character_points, 57)
+
+    def test_case15(self):
+        checkResult = sc.SyntaxChecker().check_syntax("[}")
+        self.assertEqual(checkResult.is_valid, False)
+        self.assertEqual(checkResult.invalid_character, "}")
+        self.assertEqual(checkResult.invalid_character_points, 1197)
+
+    def test_case16(self):
+        checkResult = sc.SyntaxChecker().check_syntax("[>")
+        self.assertEqual(checkResult.is_valid, False)
+        self.assertEqual(checkResult.invalid_character, ">")
+        self.assertEqual(checkResult.invalid_character_points, 25137)
 
 
 if __name__ == '__main__':
