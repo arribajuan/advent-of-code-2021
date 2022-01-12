@@ -1,81 +1,120 @@
-import SyntaxResult as sr
 import SyntaxChecker as sc
 import unittest
 
 
 class TestSyntaxChecker(unittest.TestCase):
 
-    def test_case01(self):
-        checkResult = sc.SyntaxChecker().check_syntax("")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_01(self):
+        result = sc.SyntaxChecker().check_syntax("")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case02(self):
-        checkResult = sc.SyntaxChecker().check_syntax("()")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_02(self):
+        result = sc.SyntaxChecker().check_syntax("()")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case03(self):
-        checkResult = sc.SyntaxChecker().check_syntax("([])")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_03(self):
+        result = sc.SyntaxChecker().check_syntax("([])")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case04(self):
-        checkResult = sc.SyntaxChecker().check_syntax("{()()()}")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_04(self):
+        result = sc.SyntaxChecker().check_syntax("{()()()}")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case05(self):
-        checkResult = sc.SyntaxChecker().check_syntax("<([{}])>")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_05(self):
+        result = sc.SyntaxChecker().check_syntax("<([{}])>")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case06(self):
-        checkResult = sc.SyntaxChecker().check_syntax("[<>({}){}[([])<>]]")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_06(self):
+        result = sc.SyntaxChecker().check_syntax("[<>({}){}[([])<>]]")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case07(self):
-        checkResult = sc.SyntaxChecker().check_syntax("(((((((((())))))))))")
-        self.assertEqual(checkResult.is_valid, True)
+    def test_syntax_check_07(self):
+        result = sc.SyntaxChecker().check_syntax("(((((((((())))))))))")
+        self.assertEqual(result.is_valid, True)
 
-    def test_case08(self):
-        checkResult = sc.SyntaxChecker().check_syntax("(]")
-        self.assertEqual(checkResult.is_valid, False)
+    def test_syntax_check_08(self):
+        result = sc.SyntaxChecker().check_syntax("(]")
+        self.assertEqual(result.is_valid, False)
 
-    def test_case09(self):
-        checkResult = sc.SyntaxChecker().check_syntax("{()()()>")
-        self.assertEqual(checkResult.is_valid, False)
+    def test_syntax_check_09(self):
+        result = sc.SyntaxChecker().check_syntax("{()()()>")
+        self.assertEqual(result.is_valid, False)
 
-    def test_case10(self):
-        checkResult = sc.SyntaxChecker().check_syntax("(((()))}")
-        self.assertEqual(checkResult.is_valid, False)
+    def test_syntax_check_10(self):
+        result = sc.SyntaxChecker().check_syntax("(((()))}")
+        self.assertEqual(result.is_valid, False)
 
-    def test_case11(self):
-        checkResult = sc.SyntaxChecker().check_syntax("<([]){()}[{}])")
-        self.assertEqual(checkResult.is_valid, False)
+    def test_syntax_check_11(self):
+        result = sc.SyntaxChecker().check_syntax("<([]){()}[{}])")
+        self.assertEqual(result.is_valid, False)
 
-    def test_case12(self):
-        checkResult = sc.SyntaxChecker().check_syntax("()(")
-        self.assertEqual(checkResult.is_valid, False)
+    def test_syntax_check_12(self):
+        result = sc.SyntaxChecker().check_syntax("()(")
+        self.assertEqual(result.is_valid, False)
 
-    def test_case13(self):
-        checkResult = sc.SyntaxChecker().check_syntax("[)")
-        self.assertEqual(checkResult.is_valid, False)
-        self.assertEqual(checkResult.invalid_character, ")")
-        self.assertEqual(checkResult.invalid_character_points, 3)
+    def test_invalid_character_points_01(self):
+        result = sc.SyntaxChecker().check_syntax("[)")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.invalid_character, ")")
+        self.assertEqual(result.invalid_character_points, 3)
 
-    def test_case14(self):
-        checkResult = sc.SyntaxChecker().check_syntax("(]")
-        self.assertEqual(checkResult.is_valid, False)
-        self.assertEqual(checkResult.invalid_character, "]")
-        self.assertEqual(checkResult.invalid_character_points, 57)
+    def test_invalid_character_points_02(self):
+        result = sc.SyntaxChecker().check_syntax("(]")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.invalid_character, "]")
+        self.assertEqual(result.invalid_character_points, 57)
 
-    def test_case15(self):
-        checkResult = sc.SyntaxChecker().check_syntax("[}")
-        self.assertEqual(checkResult.is_valid, False)
-        self.assertEqual(checkResult.invalid_character, "}")
-        self.assertEqual(checkResult.invalid_character_points, 1197)
+    def test_invalid_character_points_03(self):
+        result = sc.SyntaxChecker().check_syntax("[}")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.invalid_character, "}")
+        self.assertEqual(result.invalid_character_points, 1197)
 
-    def test_case16(self):
-        checkResult = sc.SyntaxChecker().check_syntax("[>")
-        self.assertEqual(checkResult.is_valid, False)
-        self.assertEqual(checkResult.invalid_character, ">")
-        self.assertEqual(checkResult.invalid_character_points, 25137)
+    def test_invalid_character_points_04(self):
+        result = sc.SyntaxChecker().check_syntax("[>")
+        self.assertEqual(result.is_valid, False)
+        self.assertEqual(result.invalid_character, ">")
+        self.assertEqual(result.invalid_character_points, 25137)
+
+    def test_syntax_completion_string_01(self):
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("[({(<(())[]>[[{[]{<()<>>")
+        self.assertEqual(result, "}}]])})]")
+
+    def test_syntax_completion_string_02(self):
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("[(()[<>])]({[<{<<[]>>(")
+        self.assertEqual(result, ")}>]})")
+
+    def test_syntax_completion_string_03(self):
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("(((({<>}<{<{<>}{[]{[]{}")
+        self.assertEqual(result, "}}>}>))))")
+
+    def test_syntax_completion_string_04(self):
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("{<[[]]>}<{[{[{[]{()[[[] ")
+        self.assertEqual(result, "]]}}]}]}>")
+
+    def test_syntax_completion_string_05(self):
+        result = sc.SyntaxChecker().complete_invalid_syntax_string("<{([{{}}[<[[[<>{}]]]>[]]")
+        self.assertEqual(result, "])}>")
+
+    def test_syntax_completion_points_01(self):
+        result = sc.SyntaxChecker().calculate_invalid_syntax_points("}}]])})]")
+        self.assertEqual(result, 288957)
+
+    def test_syntax_completion_points_02(self):
+        result = sc.SyntaxChecker().calculate_invalid_syntax_points(")}>]})")
+        self.assertEqual(result, 5566)
+
+    def test_syntax_completion_points_03(self):
+        result = sc.SyntaxChecker().calculate_invalid_syntax_points("}}>}>))))")
+        self.assertEqual(result, 1480781)
+
+    def test_syntax_completion_points_04(self):
+        result = sc.SyntaxChecker().calculate_invalid_syntax_points("]]}}]}]}>")
+        self.assertEqual(result, 995444)
+
+    def test_syntax_completion_points_05(self):
+        result = sc.SyntaxChecker().calculate_invalid_syntax_points("])}>")
+        self.assertEqual(result, 294)
 
 
 if __name__ == '__main__':

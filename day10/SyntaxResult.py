@@ -2,6 +2,8 @@ class SyntaxResult:
     is_valid = False
     invalid_character = ""
     invalid_character_points = 0
+    incomplete_syntax_fix_string = ""
+    incomplete_syntax_fix_points = 0
     text_to_check = ""
 
     def __init__(self):

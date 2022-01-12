@@ -1,5 +1,6 @@
 import SyntaxResult as sr
 
+
 class SyntaxChecker:
     token_open: list[str] = ["(", "[", "{", "<"]
     token_close: list[str] = [")", "]", "}", ">"]
@@ -68,6 +69,8 @@ class SyntaxChecker:
 
         return result
 
+    def complete_invalid_syntax_string(self, invalid_syntax_text):
+        return ""
 
-
-
+    def calculate_invalid_syntax_points(self, text_to_complete):
+        return 0
