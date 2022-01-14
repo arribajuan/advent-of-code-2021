@@ -51,28 +51,28 @@ class OctopusMatrix:
         y_size = self.matrix_octopi.shape[1]
 
         if x > 0 and y > 0 and self.matrix_flashes.item((x - 1, y - 1)) == 0:
-            self.matrix_octopi[x - 1, y - 1] += 1       # top left
+            self.matrix_octopi[x - 1, y - 1] += 1  # top left
 
         if x > 0 and self.matrix_flashes.item((x - 1, y)) == 0:
-            self.matrix_octopi[x - 1, y] += 1           # top
+            self.matrix_octopi[x - 1, y] += 1  # top
 
         if x > 0 and y < y_size - 1 and self.matrix_flashes.item((x - 1, y + 1)) == 0:
-            self.matrix_octopi[x - 1, y + 1] += 1       # top right
+            self.matrix_octopi[x - 1, y + 1] += 1  # top right
 
         if y > 0 and self.matrix_flashes.item((x, y - 1)) == 0:
-            self.matrix_octopi[x, y - 1] += 1           # mid left
+            self.matrix_octopi[x, y - 1] += 1  # mid left
 
         if y < y_size - 1 and self.matrix_flashes.item((x, y + 1)) == 0:
-            self.matrix_octopi[x, y + 1] += 1           # mid right
+            self.matrix_octopi[x, y + 1] += 1  # mid right
 
         if x < x_size - 1 and y > 0 and self.matrix_flashes.item((x + 1, y - 1)) == 0:
-            self.matrix_octopi[x + 1, y - 1] += 1       # bottom left
+            self.matrix_octopi[x + 1, y - 1] += 1  # bottom left
 
         if x < x_size - 1 and self.matrix_flashes.item((x + 1, y)) == 0:
-            self.matrix_octopi[x + 1, y] += 1           # bottom
+            self.matrix_octopi[x + 1, y] += 1  # bottom
 
         if x < x_size - 1 and y < y_size - 1 and self.matrix_flashes.item((x + 1, y + 1)) == 0:
-            self.matrix_octopi[x + 1, y + 1] += 1       # bottom right
+            self.matrix_octopi[x + 1, y + 1] += 1  # bottom right
 
     def sim_flashes(self):
         self.log(f"\n")
@@ -117,7 +117,6 @@ class OctopusMatrix:
                 self.log(f"---------------------\n")
                 return True
         return False
-
 
     def simulate_steps(self, max_rounds):
         self.reset_step()

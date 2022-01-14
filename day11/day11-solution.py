@@ -16,25 +16,11 @@ def solution1():
     typer.echo("Day 11 / Part 1")
     typer.echo("")
 
-    octopi = om.OctopusMatrix(omi.input_test1_step0)
-    for x in range(50):
+    octopi = om.OctopusMatrix(omi.input_test3_step0)
+    for x in range(100):
         octopi.simulate_steps(5)
-        typer.echo(octopi)
-
-    # m = omi.input_test1_step0.copy()
-    # typer.echo(m)
-    # m = m + 1
-    # typer.echo(m)
-
-    # typer.echo(type(omi.input_test0_step0))
-    # typer.echo(omi.input_test0_step0)
-    # typer.echo(omi.input_test0_step0.item((0, 0)))
-    # typer.echo(omi.input_test0_step0.item((0, 1)))
-    # typer.echo(omi.input_test0_step0.item((1, 1)))
-
-    # typer.echo(omi.input_test0_step0.item((1, 2)))
-    # omi.input_test0_step0[1, 2] = 100
-    # typer.echo(omi.input_test0_step0.item((1, 2)))
+    typer.echo(octopi)
+    typer.echo(f"Part 1 answer = {octopi.flashes_in_total - octopi.flashes_this_step}")
 
 
 typer.run(main)
