@@ -10,7 +10,7 @@ class OctopusMatrix:
 
     def __init__(self, octopus_matrix):
         self.matrix_octopi = octopus_matrix
-        self.matrix_flashes = np.asmatrix(np.zeros(self.matrix_octopi.shape, int))
+        self.reset_step()
 
     def __str__(self):
         result = "Octopus Matrix\n"
@@ -21,8 +21,12 @@ class OctopusMatrix:
         result += f" - Total flashes: {self.flashes_in_total}\n"
         return result
 
+    def reset_step(self):
+        self.flashes_this_step = 0
+        self.matrix_flashes = np.asmatrix(np.zeros(self.matrix_octopi.shape, int))
+
     def log(self, text_to_log):
-        if True:
+        if False:
             print(text_to_log)
 
     def sim_increase_energy_to_matrix(self):
@@ -47,76 +51,77 @@ class OctopusMatrix:
         y_size = self.matrix_octopi.shape[1]
 
         if x > 0 and y > 0 and self.matrix_flashes.item((x - 1, y - 1)) == 0:
-            self.matrix_octopi[x - 1, y - 1] += 1  # top left
+            self.matrix_octopi[x - 1, y - 1] += 1       # top left
 
         if x > 0 and self.matrix_flashes.item((x - 1, y)) == 0:
-            self.matrix_octopi[x - 1, y] += 1  # top
+            self.matrix_octopi[x - 1, y] += 1           # top
 
-        if x > 0 and y < y_size and self.matrix_flashes.item((x - 1, y + 1)) == 0:
-            self.matrix_octopi[x - 1, y + 1] += 1  # top right
+        if x > 0 and y < y_size - 1 and self.matrix_flashes.item((x - 1, y + 1)) == 0:
+            self.matrix_octopi[x - 1, y + 1] += 1       # top right
 
         if y > 0 and self.matrix_flashes.item((x, y - 1)) == 0:
-            self.matrix_octopi[x, y - 1] += 1  # mid left
+            self.matrix_octopi[x, y - 1] += 1           # mid left
 
-        if y < y_size and self.matrix_flashes.item((x, y + 1)) == 0:
-            self.matrix_octopi[x, y + 1] += 1  # mid right
+        if y < y_size - 1 and self.matrix_flashes.item((x, y + 1)) == 0:
+            self.matrix_octopi[x, y + 1] += 1           # mid right
 
-        if x < x_size and y > 0 and self.matrix_flashes.item((x + 1, y - 1)) == 0:
-            self.matrix_octopi[x + 1, y - 1] += 1  # bottom left
+        if x < x_size - 1 and y > 0 and self.matrix_flashes.item((x + 1, y - 1)) == 0:
+            self.matrix_octopi[x + 1, y - 1] += 1       # bottom left
 
-        if x < x_size and self.matrix_flashes.item((x + 1, y)) == 0:
-            self.matrix_octopi[x + 1, y] += 1  # bottom
+        if x < x_size - 1 and self.matrix_flashes.item((x + 1, y)) == 0:
+            self.matrix_octopi[x + 1, y] += 1           # bottom
 
-        if x < x_size and y < y_size and self.matrix_flashes.item((x + 1, y + 1)) == 0:
-            self.matrix_octopi[x + 1, y + 1] += 1  # bottom right
+        if x < x_size - 1 and y < y_size - 1 and self.matrix_flashes.item((x + 1, y + 1)) == 0:
+            self.matrix_octopi[x + 1, y + 1] += 1       # bottom right
 
     def sim_flashes(self):
-        # self.log(f"\n")
-        # self.log(f"---------------------\n")
-        # self.log(f"SIM FLASHES?\n")
-        # self.log(f"Octopi Matrix - {type(self.matrix_octopi)}\n")
-        # self.log(self.matrix_octopi)
-        # self.log(f"\n")
-        # self.log(f"Flash matrix - {type(self.matrix_flashes)}\n")
-        # self.log(self.matrix_flashes)
-        # self.log(f"\n")
+        self.log(f"\n")
+        self.log(f"---------------------\n")
+        self.log(f"SIM FLASHES?\n")
+        self.log(f"Octopi Matrix - {type(self.matrix_octopi)}\n")
+        self.log(self.matrix_octopi)
+        self.log(f"\n")
+        self.log(f"Flash matrix - {type(self.matrix_flashes)}\n")
+        self.log(self.matrix_flashes)
+        self.log(f"\n")
 
         # self.log(f"Check matrix\n")
         for idx, item in np.ndenumerate(self.matrix_octopi):
             has_flashed_already = self.matrix_flashes.item(idx)
-            # self.log(f" - point {idx}, value {item}, has flashed? {has_flashed_already}")
+            self.log(f" - point {idx}, value {item}, has flashed? {has_flashed_already}")
 
             if item > 9 and has_flashed_already == 0:
-                # self.log(f"    -> Process flash at {idx}")
+                self.log(f"    -> Process flash at {idx}")
                 self.sim_flash_point(idx)
 
-        # self.log(f"---------------------\n")
+        self.log(f"---------------------\n")
 
     def sim_is_flash_imminent(self):
-        # self.log(f"\n")
-        # self.log(f"---------------------\n")
-        # self.log(f"IS FLASH IMMINENT?\n")
-        # self.log(f"Octopi Matrix - {type(self.matrix_octopi)}\n")
-        # self.log(self.matrix_octopi)
-        # self.log(f"\n")
-        # self.log(f"Flash matrix - {type(self.matrix_flashes)}\n")
-        # self.log(self.matrix_flashes)
-        # self.log(f"\n")
+        self.log(f"\n")
+        self.log(f"---------------------\n")
+        self.log(f"IS FLASH IMMINENT?\n")
+        self.log(f"Octopi Matrix - {type(self.matrix_octopi)}\n")
+        self.log(self.matrix_octopi)
+        self.log(f"\n")
+        self.log(f"Flash matrix - {type(self.matrix_flashes)}\n")
+        self.log(self.matrix_flashes)
+        self.log(f"\n")
 
-        # self.log(f"Check matrix\n")
+        self.log(f"Check matrix\n")
         for idx, item in np.ndenumerate(self.matrix_octopi):
             has_flashed_already = self.matrix_flashes.item(idx)
-            # self.log(f" - point {idx}, value {item}, has flashed? {has_flashed_already}")
+            self.log(f" - point {idx}, value {item}, has flashed? {has_flashed_already}")
 
             if item > 9 and has_flashed_already == 0:
-                # self.log(f"    -> flash imminent\n")
-                # self.log(f"---------------------\n")
+                self.log(f"    -> flash imminent\n")
+                self.log(f"---------------------\n")
                 return True
         return False
 
+
     def simulate_steps(self, max_rounds):
+        self.reset_step()
         self.current_step += 1
-        self.flashes_this_step = 0
 
         self.log(f"")
         self.log(f"Simulating step {self.current_step}")

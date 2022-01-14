@@ -14,11 +14,12 @@ def main():
 def solution1():
     typer.echo("")
     typer.echo("Day 11 / Part 1")
+    typer.echo("")
 
     octopi = om.OctopusMatrix(omi.input_test1_step0)
-    octopi.simulate_steps(5)
-    octopi.simulate_steps(5)
-    typer.echo(octopi)
+    for x in range(50):
+        octopi.simulate_steps(5)
+        typer.echo(octopi)
 
     # m = omi.input_test1_step0.copy()
     # typer.echo(m)
