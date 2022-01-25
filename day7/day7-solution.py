@@ -11,9 +11,9 @@ def main():
 def solution():
     crab_aligner = ca.CrabAligner1(input_location)
 
-    #typer.echo("Day 7 / Part 1")
-    #crab_aligner.calculate_position_costs1()
-    #print(crab_aligner)
+    # typer.echo("Day 7 / Part 1")
+    # crab_aligner.calculate_position_costs1()
+    # print(crab_aligner)
 
     typer.echo("Day 7 / Part 2")
     crab_aligner.calculate_position_costs2()

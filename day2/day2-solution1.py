@@ -24,6 +24,7 @@ def solution1_1():
 
     print(f"Day 2 part 1 solution: {result}")
 
+
 def solution2_1():
     move_up = 0
     move_down = 0
@@ -39,10 +40,10 @@ def solution2_1():
 
             if direction == "up":
                 aim = aim - magnitude
-                #move_up = move_up + magnitude
+                # move_up = move_up + magnitude
             if direction == "down":
                 aim = aim + magnitude
-                #move_down = move_down + magnitude
+                # move_down = move_down + magnitude
             if direction == "forward":
                 move_forward = move_forward + magnitude
                 depth = depth + (aim * magnitude)

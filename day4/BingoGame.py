@@ -40,6 +40,3 @@ class BingoGame:
             if t.table_number == table_number:
                 return True
         return False
-
-
-

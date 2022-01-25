@@ -4,11 +4,16 @@ Advent of code attempt for 2021!
 
 ## Days of code
 
-| Day | Problem                                   | Solution                                     |
-|-----|-------------------------------------------|----------------------------------------------|
-| 1   | [Sonar Sweep](day1/README.md)             | [day1-solution1.py](day1/day1-solution1.py)  |
-| 2   | [Drive](day2/README.md)                   | [day2-solution1.py](day2/day2-solution1.py)  |
-| 3   | [Binary Diagnostic](day3/README.md)       | [day3-solution1.py](day3/day3-solution1.py)  |
-| 4   | [Gian Squid](day4/README.md)              | [day4-solution1.py](day4/day4-solution1.py)  |
-| 7   | [The Treachery of Whales](day7/README.md) | [day7-solution.py](day7/day7-solution.py)    |
-| 10  | [Syntax Scoring](day10/README.md)         | [day10-solution.py](day10/day10-solution.py) | 
+| Day | Problem                                   | Comments / solutions                                                                                                                                                                                                                               |
+|-----|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | [Sonar Sweep](day1/README.md)             | [Part 1 & 2](day1/day1-solution1.py) - solved                                                                                                                                                                                                      |
+| 2   | [Drive](day2/README.md)                   | [Part 1 & 2](day2/day2-solution1.py) - solved                                                                                                                                                                                                      |
+| 3   | [Binary Diagnostic](day3/README.md)       | [Part 1 & 2](day3/day3-solution1.py) - solved                                                                                                                                                                                                      |
+| 4   | [Gian Squid](day4/README.md)              | [Part 1 & 2](day4/day4-solution1.py) - solved                                                                                                                                                                                                      |
+| 5   | [Hydrothermal Venture](day5/README.md)    |                                                                                                                                                                                                                                                    |
+| 6   | [Lanternfish](day6/README.md)             | [Part 1](day6/day6-solution1.py) - solved brute force <br/> [Part 2](day6/day6-solution1.py) - failed brute force (crashes ... it takes too long to run) <br/> [Part 2](day6/LanternfishSimulator2.py) - needs unit tests and debugging <- revisit | 
+| 7   | [The Treachery of Whales](day7/README.md) | [Part 1 & 2](day7/day7-solution.py) - solved                                                                                                                                                                                                       |
+| 8   | [Seven Segment Search](day8/README.md)    |                                                                                                                                                                                                                                                    |
+| 9   | [Risk Detector](day9/README.md)           | [Part 1](day9/day9-solution.py) - solved? <- revisit                                                                                                                                                                                               |
+| 10  | [Syntax Scoring](day10/README.md)         | [Part 1 & 2](day10/day10-solution.py) - solved                                                                                                                                                                                                     | 
+| 11  | [Dumbo Octopus](day11/README.md)          | [Part 1](day11/day11-solution.py) - unit tests passing, not getting the correct answer :(                                                                                                                                                          | 

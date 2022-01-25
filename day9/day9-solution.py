@@ -12,6 +12,7 @@ def solution():
     typer.echo("Day 9 / Part 1")
     risk_detector = rd.RiskDetector(input_location)
     risk_detector.find_lowest_points()
+    risk_detector.find_largest_basin_size()
     typer.echo(risk_detector)
 
 

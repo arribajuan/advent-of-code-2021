@@ -66,6 +66,6 @@ class LanternfishSimulator2:
 
     def sim_turns(self, turns_to_simulate: int):
         for i in range(turns_to_simulate):
-            #print(f"Sim turn: {i}")
-            #print(self)
+            # print(f"Sim turn: {i}")
+            # print(self)
             self.sim_turn()

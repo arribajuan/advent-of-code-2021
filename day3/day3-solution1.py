@@ -78,64 +78,64 @@ def solution1_1():
     power_consumption = gamma_decimal * epsilon_decimal
 
     # Print debug messages
-    #print(f"Total items = {input_count}")
+    # print(f"Total items = {input_count}")
 
-    #print("")
+    # print("")
 
-    #print("Counts")
-    #print(f"b1 = {b1_count}")
-    #print(f"b2 = {b2_count}")
-    #print(f"b3 = {b3_count}")
-    #print(f"b4 = {b4_count}")
-    #print(f"b5 = {b5_count}")
-    #print(f"b6 = {b6_count}")
-    #print(f"b7 = {b7_count}")
-    #print(f"b8 = {b8_count}")
-    #print(f"b9 = {b9_count}")
-    #print(f"b10 = {b10_count}")
-    #print(f"b11 = {b11_count}")
-    #print(f"b12 = {b12_count}")
+    # print("Counts")
+    # print(f"b1 = {b1_count}")
+    # print(f"b2 = {b2_count}")
+    # print(f"b3 = {b3_count}")
+    # print(f"b4 = {b4_count}")
+    # print(f"b5 = {b5_count}")
+    # print(f"b6 = {b6_count}")
+    # print(f"b7 = {b7_count}")
+    # print(f"b8 = {b8_count}")
+    # print(f"b9 = {b9_count}")
+    # print(f"b10 = {b10_count}")
+    # print(f"b11 = {b11_count}")
+    # print(f"b12 = {b12_count}")
 
-    #print("")
+    # print("")
 
-    #print("Gamma")
-    #print(f"b1 = {gamma_b1}")
-    #print(f"b2 = {gamma_b2}")
-    #print(f"b3 = {gamma_b3}")
-    #print(f"b4 = {gamma_b4}")
-    #print(f"b5 = {gamma_b5}")
-    #print(f"b6 = {gamma_b6}")
-    #print(f"b7 = {gamma_b7}")
-    #print(f"b8 = {gamma_b8}")
-    #print(f"b9 = {gamma_b9}")
-    #print(f"b10 = {gamma_b10}")
-    #print(f"b11 = {gamma_b11}")
-    #print(f"b12 = {gamma_b12}")
+    # print("Gamma")
+    # print(f"b1 = {gamma_b1}")
+    # print(f"b2 = {gamma_b2}")
+    # print(f"b3 = {gamma_b3}")
+    # print(f"b4 = {gamma_b4}")
+    # print(f"b5 = {gamma_b5}")
+    # print(f"b6 = {gamma_b6}")
+    # print(f"b7 = {gamma_b7}")
+    # print(f"b8 = {gamma_b8}")
+    # print(f"b9 = {gamma_b9}")
+    # print(f"b10 = {gamma_b10}")
+    # print(f"b11 = {gamma_b11}")
+    # print(f"b12 = {gamma_b12}")
 
-    #print("")
+    # print("")
 
-    #print("Epsilon")
-    #print(f"b1 = {epsilon_b1}")
-    #print(f"b2 = {epsilon_b2}")
-    #print(f"b3 = {epsilon_b3}")
-    #print(f"b4 = {epsilon_b4}")
-    #print(f"b5 = {epsilon_b5}")
-    #print(f"b6 = {epsilon_b6}")
-    #print(f"b7 = {epsilon_b7}")
-    #print(f"b8 = {epsilon_b8}")
-    #print(f"b9 = {epsilon_b9}")
-    #print(f"b10 = {epsilon_b10}")
-    #print(f"b11 = {epsilon_b11}")
-    #print(f"b12 = {epsilon_b12}")
+    # print("Epsilon")
+    # print(f"b1 = {epsilon_b1}")
+    # print(f"b2 = {epsilon_b2}")
+    # print(f"b3 = {epsilon_b3}")
+    # print(f"b4 = {epsilon_b4}")
+    # print(f"b5 = {epsilon_b5}")
+    # print(f"b6 = {epsilon_b6}")
+    # print(f"b7 = {epsilon_b7}")
+    # print(f"b8 = {epsilon_b8}")
+    # print(f"b9 = {epsilon_b9}")
+    # print(f"b10 = {epsilon_b10}")
+    # print(f"b11 = {epsilon_b11}")
+    # print(f"b12 = {epsilon_b12}")
 
-    #print("")
+    # print("")
 
-    #print(f"Gamma binary: {gamma_binary_string}")
-    #print(f"Gamma decimal: {gamma_decimal}")
-    #print(f"Epsilon binary: {epsilon_binary_string}")
-    #print(f"Epsilon decimal: {epsilon_decimal}")
+    # print(f"Gamma binary: {gamma_binary_string}")
+    # print(f"Gamma decimal: {gamma_decimal}")
+    # print(f"Epsilon binary: {epsilon_binary_string}")
+    # print(f"Epsilon decimal: {epsilon_decimal}")
 
-    #print("")
+    # print("")
 
     print(f"Day 3 part 1 solution: {power_consumption}")
 
@@ -152,9 +152,9 @@ def solution2_1():
 
     result = ogr_decimal * co2sr_decimal
 
-    #print(f"OGR = {ogr_decimal}")
-    #print(f"CO2SR = {co2sr_decimal}")
-    #print(f"RESUKT = {result}")
+    # print(f"OGR = {ogr_decimal}")
+    # print(f"CO2SR = {co2sr_decimal}")
+    # print(f"RESUKT = {result}")
 
     print(f"Day 3 part 2 solution: {result}")
 
@@ -164,19 +164,19 @@ def solution2_1_process(diagnostic_report, filter_type: FilterTypeEnum):
         common_bit = solution2_1_most_common_bit(bit_position, diagnostic_report)
         diagnostic_report = solution2_1_filter(bit_position, diagnostic_report, common_bit, filter_type)
 
-        #print(f"Position = {bit_position}")
-        #print(f"Common bit = {common_bit}")
-        #print(f"Remaining items in list = {len(diagnostic_report)}")
+        # print(f"Position = {bit_position}")
+        # print(f"Common bit = {common_bit}")
+        # print(f"Remaining items in list = {len(diagnostic_report)}")
 
         if len(diagnostic_report) == 1:
             processed_line = diagnostic_report[0]
             processed_decimal = int(processed_line, 2)
-            #print(" -- we have an answer!")
-            #print(f" -- {processed_line}")
-            #print(f" -- {processed_decimal}")
+            # print(" -- we have an answer!")
+            # print(f" -- {processed_line}")
+            # print(f" -- {processed_decimal}")
             return processed_decimal
 
-        #print("----")
+        # print("----")
 
 
 def solution2_1_filter(bit_position, diagnostic_report, common_bit, filter_type: FilterTypeEnum):
