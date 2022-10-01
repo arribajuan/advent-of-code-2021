@@ -2,12 +2,9 @@
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Challenge1(string[] inputLines)
         {
-            Console.WriteLine("Advent of Code 2021 - Day 1 - Challenge 1");
-
-            string filePath = "day1-input.txt";
-            string[] inputLines = Utilities.LoadInput(filePath);
+            Console.WriteLine(" - Challenge 1");
 
             int previousNumber = 0;
             int increaseCount = 0;
@@ -23,7 +20,18 @@
                 previousNumber = currentNumber;
             }
 
-            Console.WriteLine($"Total increases: {increaseCount}");
+            Console.WriteLine($" - Total increases: {increaseCount}");
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Advent of Code 2021 - Day 1");
+
+            string filePath = "day1-input.txt";
+            string[] inputLines = Utilities.LoadInput(filePath);
+
+            Challenge1(inputLines);
+
             Console.ReadKey(true);
         }
     }
