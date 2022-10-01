@@ -133,3 +133,5 @@ dmypy.json
 .idea/modules.xml
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
+day1/dotnet-vscode/bin/
+day1/dotnet-vscode/obj/
