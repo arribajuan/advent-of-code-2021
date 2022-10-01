@@ -1,7 +1,8 @@
-using System.IO;
+﻿using System.IO;
+
 namespace AOC2021.Day1
 {
-    class Utilities
+    internal class Utilities
     {
         public static string[] LoadInput(string filePath)
         {
