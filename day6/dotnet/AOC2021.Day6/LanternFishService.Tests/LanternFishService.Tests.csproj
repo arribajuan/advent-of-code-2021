@@ -25,9 +25,7 @@
     <ProjectReference Include="..\LanternFishService\LanternFishService.csproj" />
   </ItemGroup>
 
-<ItemGroup>
-  <None Include="$(SolutionDir)Inputs\**" 
-        CopyToOutputDirectory="PreserveNewest"
-        LinkBase="Inputs\" />
-</ItemGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)Inputs\**" CopyToOutputDirectory="PreserveNewest" LinkBase="Inputs\" />
+  </ItemGroup>
 </Project>

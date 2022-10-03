@@ -5,6 +5,8 @@ namespace AOC2021.Day6.LanternFishService.Tests;
 
 public class UnitTLanternFishSimulatorTests
 {
+    #region Basic unit tests
+
     [Fact]
     public void NoInitialFish()
     {
@@ -355,4 +357,64 @@ public class UnitTLanternFishSimulatorTests
         Assert.True(result, "Generates fish in timer 7");
     }
 
+    #endregion
+
+    #region Sample input tests
+
+    [Fact]
+    public void FishCountInput1Turn0()
+    {
+        string filePath = "./Inputs/day6-input1.txt";
+        List<int> inputNumbers = Utilities.LoadInput(filePath);
+        LanternFishCounts initialFish = Utilities.LoadBucketsFromInput(inputNumbers);
+
+        long expectedFishCount = 5;
+        bool result = initialFish.TotalFish == expectedFishCount;
+
+        Assert.True(result, "Should be 5");
+    }
+
+    [Fact]
+    public void FishCountInput1Turn18()
+    {
+        string filePath = "./Inputs/day6-input1.txt";
+        List<int> inputNumbers = Utilities.LoadInput(filePath);
+        LanternFishCounts initialFish = Utilities.LoadBucketsFromInput(inputNumbers);
+
+        long expectedFishCount = 26;
+        LanternFishCounts simulatedFish = LanternFishSimulator.SimulateFish(initialFish, 18);
+        bool result = simulatedFish.TotalFish == expectedFishCount;
+
+        Assert.True(result, "Should be 26");
+    }
+
+    [Fact]
+    public void FishCountInput1Turn80()
+    {
+        string filePath = "./Inputs/day6-input1.txt";
+        List<int> inputNumbers = Utilities.LoadInput(filePath);
+        LanternFishCounts initialFish = Utilities.LoadBucketsFromInput(inputNumbers);
+
+        long expectedFishCount = 5934;
+        LanternFishCounts simulatedFish = LanternFishSimulator.SimulateFish(initialFish, 80);
+        bool result = simulatedFish.TotalFish == expectedFishCount;
+
+        Assert.True(result, "Should be 5934");
+    }
+
+    [Fact]
+    public void FishCountInput1Turn256()
+    {
+        string filePath = "./Inputs/day6-input1.txt";
+        List<int> inputNumbers = Utilities.LoadInput(filePath);
+        LanternFishCounts initialFish = Utilities.LoadBucketsFromInput(inputNumbers);
+
+        long expectedFishCount = 26984457539;
+        LanternFishCounts simulatedFish = LanternFishSimulator.SimulateFish(initialFish, 256);
+        bool result = simulatedFish.TotalFish == expectedFishCount;
+
+        Assert.True(result, "Should be 26984457539");
+    }
+
+    #endregion
 }
