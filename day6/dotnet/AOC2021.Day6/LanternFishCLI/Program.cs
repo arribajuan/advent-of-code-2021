@@ -38,7 +38,7 @@ namespace AOC2021.Day6.LanternFishCLI
             #region Puzzle data
 
             //string filePath2 = "./Inputs/day6-input2.txt";
-            string filePath2 = "D:\\code\\repos\\advent-of-code-2021\\advent-of-code-2021\\day6\\dotnet\\AOC2021.Day6\\Inputs\\day6-input1.txt";
+            string filePath2 = "D:\\code\\repos\\advent-of-code-2021\\advent-of-code-2021\\day6\\dotnet\\AOC2021.Day6\\Inputs\\day6-input2.txt";
 
             List<int> inputNumbers2 = Utilities.LoadInput(filePath2);
             LanternFishCounts initialFish2 = Utilities.LoadBucketsFromInput(inputNumbers2);
