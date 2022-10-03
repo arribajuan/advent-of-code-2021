@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanternFishService", "LanternFishService\LanternFishService.csproj", "{5EACDB30-C8B8-4551-93E2-CA500205AB80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanternFishService.Tests", "LanternFishService.Tests\LanternFishService.Tests.csproj", "{5E3F4A18-BBE4-4552-9CF9-51EBA0DEEFA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5EACDB30-C8B8-4551-93E2-CA500205AB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EACDB30-C8B8-4551-93E2-CA500205AB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EACDB30-C8B8-4551-93E2-CA500205AB80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3F4A18-BBE4-4552-9CF9-51EBA0DEEFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3F4A18-BBE4-4552-9CF9-51EBA0DEEFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3F4A18-BBE4-4552-9CF9-51EBA0DEEFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3F4A18-BBE4-4552-9CF9-51EBA0DEEFA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

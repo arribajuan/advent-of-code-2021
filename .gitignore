@@ -179,3 +179,7 @@ day1/dotnet-vs/Day1/.vs/ProjectEvaluation/day1.metadata.v5.1
 day6/dotnet-vscode/bin/
 day6/dotnet-vscode/obj/
 
+day6/dotnet/AOC2021.Day6/LanternFishService/bin/
+day6/dotnet/AOC2021.Day6/LanternFishService/obj/
+day6/dotnet/AOC2021.Day6/LanternFishService.Tests/bin/
+day6/dotnet/AOC2021.Day6/LanternFishService.Tests/obj/
