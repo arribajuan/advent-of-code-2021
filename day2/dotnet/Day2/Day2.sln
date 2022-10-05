@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2", "Day2\Day2.csproj", "{1841E72C-C4CF-4A40-99A6-483C0B55D369}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2.CLI", "Day2\Day2.CLI.csproj", "{1841E72C-C4CF-4A40-99A6-483C0B55D369}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2.PositionCalculator", "Day2.PositionCalculator\Day2.PositionCalculator.csproj", "{F95B8176-BBF4-44B3-9C37-C2B90CD9ED02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1841E72C-C4CF-4A40-99A6-483C0B55D369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1841E72C-C4CF-4A40-99A6-483C0B55D369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1841E72C-C4CF-4A40-99A6-483C0B55D369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F95B8176-BBF4-44B3-9C37-C2B90CD9ED02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95B8176-BBF4-44B3-9C37-C2B90CD9ED02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95B8176-BBF4-44B3-9C37-C2B90CD9ED02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95B8176-BBF4-44B3-9C37-C2B90CD9ED02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
