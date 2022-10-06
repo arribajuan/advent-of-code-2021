@@ -1,25 +1,41 @@
-﻿namespace Day2.PositionCalculator
+﻿using static Day2.PositionCalculator.SubmarineMovement;
+
+namespace Day2.PositionCalculator
 {
     public class Utilities
     {
-        public static List<int> LoadInput(string filePath)
+        public static List<SubmarineMovement> LoadInput(string filePath)
         {
-            List<int> result = new List<int>();
+            List<SubmarineMovement> result = new List<SubmarineMovement>();
 
             string[] fileLines = File.ReadAllLines(filePath, System.Text.Encoding.Default);
 
             foreach (string line in fileLines)
             {
-                Console.WriteLine(line);
+                SubmarineMovement movement = new SubmarineMovement();
+
+                char[] spearator = { ' ' };
+                String[] strlist = line.Split(spearator, StringSplitOptions.TrimEntries);
+
+                switch (strlist[0])
+                {
+                    case "up":
+                        movement.Direction = MovementDirectionEnum.Up;
+                        break;
+                    case "down":
+                        movement.Direction = MovementDirectionEnum.Down;
+                        break;
+                    case "forward":
+                        movement.Direction = MovementDirectionEnum.Forward;
+                        break;
+                    default:
+                        movement.Direction = MovementDirectionEnum.Unknown;
+                        break;
+                }
+                movement.Magnitude = Convert.ToInt32(strlist[1]);
+
+                result.Add(movement);
             }
-
-            //char[] spearator = { ',' };
-            //String[] strlist = fileLines[0].Split(spearator, StringSplitOptions.TrimEntries);       // Unsafe assumption that we have at least one line of texts
-
-            //foreach (String s in strlist)
-            //{
-            //    result.Add(Convert.ToInt32(s));
-            //}
 
             return result;
         }

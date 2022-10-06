@@ -6,21 +6,17 @@ namespace Day2.CLI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Advent of Code 2021 - Day 2");
 
+            string filePath = "./Inputs/day2-input.txt";
+            List<SubmarineMovement> movements = Utilities.LoadInput(filePath);
+            Console.WriteLine(" - Input loaded");
 
-            //string filePath1 = "/Inputs/day6-input1.txt";
-            string filePath = "D:\\code\\repos\\advent-of-code-2021\\advent-of-code-2021\\day2\\dotnet\\Day2\\Day2\\Inputs\\day2-input.txt";
+            int result1 = Challenge1.Solution(movements);
+            Console.WriteLine($" - Challenge 1: {result1}");
 
-            List<int> result = Utilities.LoadInput(filePath);
-
-            // This points to the correct path, but the files are not eing copied ... troubleshoot this
-            //string filePath1 = System.AppContext.BaseDirectory + "Inputs\\day6-input1.txt";
-
-
-
+            int result2 = Challenge2.Solution(movements);
+            Console.WriteLine($" - Challenge 2: {result2}");
         }
-
-
     }
 }
